@@ -18,7 +18,7 @@ Detects when a field, local, or parameter has a very short name.
         </description>
         <priority>3</priority>
         <properties>
-            <property name="minimum" description="Minimum length for a variable, property or parameter name" value="3"/>
+            <property name="minimum" description="Minimum length for a variable, property or parameter name" value="2"/>
             <property name="exceptions" description="Comma-separated list of exceptions" value=""/>
         </properties>
         <example>
@@ -129,38 +129,7 @@ class Foo {
         </example>
     </rule>
 
-    <rule name="BooleanGetMethodName"
-          since="0.2"
-          message="The '{0}()' method which returns a boolean should be named 'is...()' or 'has...()'"
-          class="PHPMD\Rule\Naming\BooleanGetMethodName"
-          externalInfoUrl="http://phpmd.org/rules/naming.html#booleangetmethodname">
-        <description>
-Looks for methods named 'getX()' with 'boolean' as the return type. The convention
-is to name these methods 'isX()' or 'hasX()'.
-        </description>
-        <priority>4</priority>
-        <properties>
-            <property name="checkParameterizedMethods" value="false" description="Applies only to methods without parameter when set to true" />
-        </properties>
-        <example>
-            <![CDATA[
-class Foo {
-    /**
-     * @return boolean
-     */
-    public function getFoo() {} // bad
-    /**
-     * @return bool
-     */
-    public function isFoo(); // ok
-    /**
-     * @return boolean
-     */
-    public function getFoo($bar); // ok, unless checkParameterizedMethods=true
-}
-            ]]>
-        </example>
-    </rule>
+
 
 <!--
 
